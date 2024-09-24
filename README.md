@@ -2,19 +2,29 @@
 
 > Projeto feito para melhor compreensão de IA generativa em diferentes âmbitos.
 
-### Instalando
-__**OBS** : é requerido python3.9 ou superior__
+### $ Instalando
+_**OBS** : é requerido python3.9 ou superior_
 
-Step-by-Step :
+***Step-by-Step (Windows e Linux):***
 
-#### Linux:
-<ol>
-    <li>`python3 -m venv dev`
-    <li>`source ./dev/bin/activate`
-    <li>`pip install -q -U google-generativeai`
-    <li>faça uma conta em [gemini api key](https://aistudio.google.com/app/apikey?hl=pt-br)
-    <li>Crie uma chave de API
-    <li>Copie ela (será usada posteriormente)
-    <li>`python3 example.py`
-    <li>Prontinho! 😎
-</ol>
+### $ Windows🪟:
+
+* `python -m venv dev`
+* `dev/Script/activate`
+* `pip install -q -U google-generativeai`
+* faça uma conta em [gemini api key](https://aistudio.google.com/app/apikey?hl=pt-br)
+* Crie uma chave de API
+* Copie ela (será usada posteriormente)
+* `python example.py`
+* Prontinho! 😎
+
+### $ Linux🐧:
+
+* `python3 -m venv dev`
+* `source ./dev/bin/activate`
+* `pip install -q -U google-generativeai`
+* faça uma conta em [gemini api key](https://aistudio.google.com/app/apikey?hl=pt-br)
+* Crie uma chave de API
+* Copie ela (será usada posteriormente)
+* `python3 example.py`
+* Prontinho! 😎
