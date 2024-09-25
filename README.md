@@ -46,4 +46,5 @@ _**OBS** : é requerido python3.9 ou superior_
 `manage.py [arg]`
 
 ***Lista de arg***
-* runserver > roda o servidor na porta 8080
+* `runserver` → roda o servidor na porta 8080
+* `version` → mostra versão do projeto

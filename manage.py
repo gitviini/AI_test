@@ -11,8 +11,14 @@ argv.pop(argv.index("manage.py"))
 
 # verificando cada argumento
 for arg in argv:
-    if arg == 'runserver':
-        app.run(debug=True,port=8080)
-    else:
-        print(f"\033[31;3mArgumento {arg} não existe\033[m")
-        exit()
+    match arg:
+        case 'runserver':
+            app.run(debug=True,port=8080)
+            continue
+        case "version":
+            print("version : 1.0.0")
+            continue
+        case _:
+            print(f"\033[31;3mArgumento {arg} não existe\033[m")
+            exit()
+            break
