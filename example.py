@@ -2,6 +2,7 @@
 from model import Model
 from time import sleep 
 
+# Tentando executar
 try:
     # Instanciando novo Modelo
     api = Model()
@@ -27,5 +28,8 @@ try:
                 print("\033[31;3mSaindo...\033[m")
                 break
 
+# Prevendo excessões
+# Excessão geral
 except Exception as erro: print(erro)
+# Excessão por interrupção do teclado [Ctrl]+[C]
 except KeyboardInterrupt: print("\n\033[31;3mSaindo...\033[m")
