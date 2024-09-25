@@ -1,6 +1,6 @@
 # AI test
 
-> Projeto feito para melhor compreensão de IA generativa em diferentes âmbitos.
+> Projeto feito para melhor compreensão de IA generativa em diferentes âmbitos. <br>
 > Agora também de forma web, confira em [AI test Web](https://github.com/gitviini/AI_test/tree/web)
 
 ## Navegação:
