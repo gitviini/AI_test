@@ -2,11 +2,19 @@
 
 > Projeto feito para melhor compreensão de IA generativa em diferentes âmbitos.
 
+## Navegação:
+* [Instalando](#instalando)
+* [Instalando no Windows](#windows)
+* [Instalando no Linux](#linux)
+* [Comandos](#comandos)
+
+<a id="instalando"></a>
 ### $ Instalando
 _**OBS** : é requerido python3.9 ou superior_
 
 ***Step-by-Step (Windows e Linux):***
 
+<a id="windows"></a>
 ### $ Windows🪟:
 
 * `python -m venv dev`
@@ -19,6 +27,7 @@ _**OBS** : é requerido python3.9 ou superior_
 * `python manage.py runserver`
 * Prontinho! 😎
 
+<a id="linux"></a>
 ### $ Linux🐧:
 
 * `python3 -m venv dev`
@@ -30,3 +39,11 @@ _**OBS** : é requerido python3.9 ou superior_
 * Copie ela (será usada posteriormente)
 * `python3 manage.py runserver`
 * Prontinho! 😎
+
+<a id="comandos"></a>
+## Comandos:
+
+`manage.py [arg]`
+
+***Lista de arg***
+* runserver > roda o servidor na porta 8080

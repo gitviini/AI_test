@@ -1,4 +1,4 @@
-from app.__init__ import app, render_template
+from app import app, render_template
 
 @app.route("/")
 def home():

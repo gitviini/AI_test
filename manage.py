@@ -1,8 +1,18 @@
-from app.__init__ import app
-import sys
+# importações
+try:
+    from app import app
+    from sys import argv
+except ModuleNotFoundError as erro: 
+    print(f"\033[31;3mBiblioteca '{erro.name}' não instalada/encontrada\033[m")
+    exit()
 
-args = sys.argv
+# removendo argumento padrão
+argv.pop(argv.index("manage.py"))
 
-for arg in args:
+# verificando cada argumento
+for arg in argv:
     if arg == 'runserver':
         app.run(debug=True,port=8080)
+    else:
+        print(f"\033[31;3mArgumento {arg} não existe\033[m")
+        exit()
