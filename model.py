@@ -3,7 +3,6 @@ try:
     # Importando
     import google.generativeai as genai
     import os
-    import django
 
 # Excessão por falta de modulo instalados/encontrados
 except ModuleNotFoundError as erro: 
