@@ -1,12 +1,20 @@
 # AI test
 
 > Projeto feito para melhor compreensão de IA generativa em diferentes âmbitos.
+> Agora também de forma web, confira em [AI test Web](https://github.com/gitviini/AI_test/tree/web)
 
+## Navegação:
+* [Instalando](#instalando)
+* [Instalando no Windows](#windows)
+* [Instalando no Linux](#linux)
+
+<a id="instalando"></a>
 ### $ Instalando
 _**OBS** : é requerido python3.9 ou superior_
 
 ***Step-by-Step (Windows e Linux):***
 
+<a id="windows"></a>
 ### $ Windows🪟:
 
 * `python -m venv dev`
@@ -18,6 +26,7 @@ _**OBS** : é requerido python3.9 ou superior_
 * `python example.py`
 * Prontinho! 😎
 
+<a id="Linux"></a>
 ### $ Linux🐧:
 
 * `python3 -m venv dev`
