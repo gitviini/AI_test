@@ -10,7 +10,7 @@
 
 <a id="instalando"></a>
 ### $ Instalando
-_**OBS** : é requerido python3.9 ou superior_
+_**OBS** : é requerido ==python3.9== ou superior_
 
 ***Step-by-Step (Windows e Linux):***
 
