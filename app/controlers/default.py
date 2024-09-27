@@ -7,9 +7,10 @@ infos = [
 ]
 
 # Rota inicial
-@app.route("/")
+@app.route("/", methods=['GET','POST'])
 def home():
     if req.method == 'POST':
-        print(req.form)
+        for i in req.form:
+            print(f"{i} : {req.form[i]}")
     # Retornando html e informações
     return render_template("index.html", infos=infos)
