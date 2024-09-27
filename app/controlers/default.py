@@ -7,7 +7,7 @@ except ModuleNotFoundError as erro:
 
 infos = [
     'version : 1.0.0',
-    'name : chat_bot',
+    '@AI Bot',
 ]
 
 # Rota inicial
