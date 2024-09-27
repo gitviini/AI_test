@@ -7,10 +7,11 @@ except ModuleNotFoundError as erro:
     print(f"\033[31;3mBiblioteca '{erro.name}' não instalada/encontrada\033[m")
     exit()
 
-engine = create_engine('sqlite:////tmp/test.db')
+engine = create_engine('sqlite:////home/gabriel/programing/python/AI_test/test.db')
 db_session = scoped_session(sessionmaker(autocommit=False,
-                                         autoflush=False,
-                                         bind=engine))
+autoflush=False,
+bind=engine))
+
 Base = declarative_base()
 Base.query = db_session.query_property()
 

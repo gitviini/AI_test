@@ -10,14 +10,27 @@
 
 <body>
     <main class="flex column center">
-        <section class="login flex column center">
-            <h1>Login</h1>
-            <form action="." method="post" class="flex column">
-                <input type="text" name="name" required placeholder="Usuário">
-                <input type="password" name="password" required placeholder="Senha">
-                <button>enviar</button>
-            </form>
-        </section>
+        {% if state == "login" %}
+            <section class="login flex column center">
+                <h1>Login</h1>
+                <form action="." method="post" class="flex column">
+                    <input type="text" name="name" required placeholder="Usuário">
+                    <input type="password" name="password" required placeholder="Senha">
+                    <button>enviar</button>
+                    <span style="font-style: italic;">{{msg}}</span>
+                </form>
+            </section>
+        {% else %}
+            <section class="login flex column center">
+                <h1>Register</h1>
+                <form action="/register" method="post" class="flex column">
+                    <input type="text" name="name" required placeholder="Usuário">
+                    <input type="password" name="password" required placeholder="Senha">
+                    <button>enviar</button>
+                    <span style="font-style: italic;">{{msg}}</span>
+                </form>
+            </section>
+        {% endif %}
         <footer class="flex row center">
             <div class="info">
                 {% for info in infos%}
