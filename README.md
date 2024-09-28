@@ -1,6 +1,6 @@
 # AI test Web
 
-<img src="/img/image.png" alt='Imagem de exemplo'>
+<img src="/img/image.png" alt='Imagem de exemplo' width="100%">
 
 > Projeto feito para melhor compreensão de IA generativa em diferentes âmbitos.
 
