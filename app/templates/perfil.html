@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI bot</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+</head>
+
+<body>
+    <main>
+        <main class="flex column center">
+            <section class="login flex column center">
+                <div class="flex row"><h3>Usuário:</h3> <span>{{user}}</span></div>
+                <span style="font-style: italic;">{{msg}}</span>
+                <a href="/bot" class="button">iniciar bot</a>
+                <a href="/logout" class="button">sair</a>
+            </section>
+            <footer class="flex row center">
+                <div class="info">
+                    {% for info in infos%}
+                    <span>{{info}}</span>
+                    {% endfor %}
+                </div>
+            </footer>
+        </main>
+    </main>
+</body>
+
+</html>

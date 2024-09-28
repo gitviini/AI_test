@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI bot</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="{{url_for('static',filename='js/bot.js')}}" defer></script>
+</head>
+
+<body>
+    <main class="flex column center">
+    <section class="flex column start width">
+        <div class="flex row center"> <a href="/" class="button bi"><i class="bi bi-arrow-left-short"></i></a><h1>AI bot</h1><span style="font-style: italic;">{{msg}}</span></div>
+        <div id="container_msg" class="flex column start width">
+
+        </div>
+    </section>
+    <div class="container_input flex row center width">
+        <form action="." method="post" class="flex row center width">
+            <input type="text" name="name" class="width" required placeholder="Faça uma pergunta">
+            <button id="send_ask">enviar</button>
+        </form>
+    </div>
+    </main>
+</body>
+
+</html>

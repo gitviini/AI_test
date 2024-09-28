@@ -1,5 +1,7 @@
 # AI test Web
 
+![Imagem de exemplo](/img/image.png)
+
 > Projeto feito para melhor compreensão de IA generativa em diferentes âmbitos.
 
 ## Navegação:
@@ -46,5 +48,6 @@ _**OBS** : é requerido **python3.9** ou superior_
 `manage.py [arg]`
 
 ***Lista de arg***
-* `runserver` → roda o servidor na porta 8080
+* `runserver` → roda o servidor na porta 8000
+* `debug` → roda o servidor em modo de debug na porta 8080
 * `version` → mostra versão do projeto
