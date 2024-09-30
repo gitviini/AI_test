@@ -6,9 +6,13 @@ except ModuleNotFoundError as erro:
     print(f"\033[31;3mBiblioteca '{erro.name}' não instalada/encontrada\033[m")
     exit()
 
-api_key=os.environ["API_KEY"]
+try:
+    api_key=os.environ["API_KEY"]
+except KeyError as erro:
+    print(f"\033[31;3mVariável de ambiente {erro} não configurada\033[m")
+    exit()
 
-genai.configure(api_key=api_key) if api_key else print(f"\033[31;3mChave de api não encontrada\033[m")
+genai.configure(api_key=api_key) if api_key else print(f"\033[31;3mVariável de ambiente 'API_KEY' vázia\033[m")
 
 model = genai.GenerativeModel(MODEL_AI)
 
