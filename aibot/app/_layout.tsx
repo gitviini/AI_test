@@ -1,13 +1,6 @@
-import { Link } from 'expo-router';
-import { Stack } from 'expo-router';
+import COLORS from '@/configs';
 
-const COLORS = {
-  'yellow':'#FDFFAB',
-  'orange':'#FFCF81',
-  'green':'#D9EDBF',
-  'red':'#FFB996',
-  'title':'#000000',
-}
+import { Stack } from 'expo-router';
 
 export default function RootLayout() {
   return (
@@ -24,6 +17,9 @@ export default function RootLayout() {
       }}>
       <Stack.Screen name="index" options={{
         title:'Início'
+      }}/>
+      <Stack.Screen name="bot" options={{
+        title:'AI Bot'
       }}/>
     </Stack>
   );
