@@ -1,7 +1,9 @@
-# AI test
+# AI bot react
 
-> Projeto feito para melhor compreensão de IA generativa em diferentes âmbitos. <br>
-> Agora também de forma web, confira em [AI test Web](https://github.com/gitviini/AI_test/tree/web)
+> Projeto feito para melhor compreensão de IA generativa em diferentes âmbitos.<br> 
+> Agora de forma web e mobile 😎👌.
+
+[INFO] Parte de IA não está integrada
 
 ## Navegação:
 * [Instalando](#instalando)
@@ -10,30 +12,23 @@
 
 <a id="instalando"></a>
 ### $ Instalando
-_**OBS** : é requerido python3.9 ou superior_
+
+[INFO] : é requerido nodejs na versão mais recente.
 
 ***Step-by-Step (Windows e Linux):***
 
 <a id="windows"></a>
 ### $ Windows🪟:
 
-* `python -m venv dev`
-* `dev/Script/activate`
-* `pip install -q -U google-generativeai`
-* faça uma conta em [gemini api key](https://aistudio.google.com/app/apikey?hl=pt-br)
-* Crie uma chave de API
-* Copie ela (será usada posteriormente)
-* `python example.py`
+* Tenha nodejs na versão mais recente
+* `npm install`
+* `npx expo start`
 * Prontinho! 😎
 
 <a id="Linux"></a>
 ### $ Linux🐧:
 
-* `python3 -m venv dev`
-* `source ./dev/bin/activate`
-* `pip install -q -U google-generativeai`
-* faça uma conta em [gemini api key](https://aistudio.google.com/app/apikey?hl=pt-br)
-* Crie uma chave de API
-* Copie ela (será usada posteriormente)
-* `python3 example.py`
+* Tenha nodejs na versão mais recente
+* `npm install`
+* `npx expo start`
 * Prontinho! 😎
