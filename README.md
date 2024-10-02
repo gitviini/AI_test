@@ -3,7 +3,7 @@
 > Projeto feito para melhor compreensão de IA generativa em diferentes âmbitos.<br> 
 > Agora de forma web e mobile 😎👌.
 
-> [!INFO]
+> [!NOTE]
 > Parte de IA não está integrada
 
 ## Navegação:
@@ -14,7 +14,7 @@
 <a id="instalando"></a>
 ### $ Instalando
 
-> [!INFO]
+> [!NOTE]
 > É requerido nodejs na versão mais recente.
 
 ***Step-by-Step (Windows e Linux):***
