@@ -9,10 +9,6 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <Text>Início</Text>
-      <Link href={{
-        pathname: '/details/[id]',
-        params: { id: 'bacon' },
-      }} style={styles.link}>View details</Link>
     </View>
   );
 }
