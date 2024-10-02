@@ -9,7 +9,7 @@
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash.png",
-      "resizeMode": "40x40",
+      "resizeMode": "40",
       "backgroundColor": "#ffffff"
     },
     "ios": {
