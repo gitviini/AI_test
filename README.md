@@ -21,6 +21,7 @@
 ### $ Windows🪟:
 
 * Tenha nodejs na versão mais recente
+* `cd aibot`
 * `npm install`
 * `npx expo start`
 * Prontinho! 😎
@@ -29,6 +30,7 @@
 ### $ Linux🐧:
 
 * Tenha nodejs na versão mais recente
+* `cd aibot`
 * `npm install`
 * `npx expo start`
 * Prontinho! 😎
