@@ -1,7 +1,7 @@
 # AI test
 
 > Projeto feito para melhor compreensão de IA generativa em diferentes âmbitos. <br>
-<img src="image.png" alt="imagem de exemplo">
+<img src="image.png" alt="imagem de exemplo" width="100%">
 
 ## Navegação:
 * [Instalando](#instalando)
@@ -10,30 +10,21 @@
 
 <a id="instalando"></a>
 ### $ Instalando
-_**OBS** : é requerido python3.9 ou superior_
 
 ***Step-by-Step (Windows e Linux):***
 
 <a id="windows"></a>
 ### $ Windows🪟:
 
-* `python -m venv dev`
-* `dev/Script/activate`
-* `pip install -q -U google-generativeai`
-* faça uma conta em [gemini api key](https://aistudio.google.com/app/apikey?hl=pt-br)
-* Crie uma chave de API
-* Copie ela (será usada posteriormente)
-* `python example.py`
+* `cd project`
+* `npm install`
+* `next run`
 * Prontinho! 😎
 
 <a id="Linux"></a>
 ### $ Linux🐧:
 
-* `python3 -m venv dev`
-* `source ./dev/bin/activate`
-* `pip install -q -U google-generativeai`
-* faça uma conta em [gemini api key](https://aistudio.google.com/app/apikey?hl=pt-br)
-* Crie uma chave de API
-* Copie ela (será usada posteriormente)
-* `python3 example.py`
+* `cd project`
+* `npm install`
+* `next run`
 * Prontinho! 😎
