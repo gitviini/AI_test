@@ -18,6 +18,7 @@
 
 * `cd project`
 * `npm install`
+* `npm i -g next`
 * `next run`
 * Prontinho! 😎
 
@@ -26,5 +27,6 @@
 
 * `cd project`
 * `npm install`
+* `npm i -g next`
 * `next run`
 * Prontinho! 😎
