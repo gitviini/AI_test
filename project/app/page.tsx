@@ -6,7 +6,7 @@ export default function Home() {
         <h1 className="text-4xl font-bold">
           HI,<br /><span className="text-white/[.5]">AI bot here!</span>
         </h1>
-        <ol className="">
+        <ol className="list-inside list-decimal">
           <li>Tudo começa com uma ideia.</li>
           <li>E termina com um produto.</li>
         </ol>
