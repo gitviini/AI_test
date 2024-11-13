@@ -46,7 +46,7 @@ const askAi = async (message) => {
         res = await JSON.parse(Buffer.from(response.body).toString("utf8")).choices[0].message.content;
     }else{
         res = "failed"
-    }
+    };
 
     return res
 };
