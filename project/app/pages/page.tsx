@@ -1,8 +1,10 @@
 'use client';
 import HeaderDefault from "@/components/Header";
 import { useState } from "react";
+import askAi from "@/app/_api.js"
 
 export default function Chat() {
+	askAi("hello")
     const [prompt, setPrompt] = useState("")
     return (
         <main className="font-mono h-screen flex flex-col justify-between items-center">

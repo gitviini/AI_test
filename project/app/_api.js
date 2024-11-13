@@ -3,7 +3,14 @@ import {
     InvokeModelCommand,
 } from "@aws-sdk/client-bedrock-runtime"; // ES Modules import
 
-const client = new BedrockRuntimeClient({region: "us-east-1"});
+import info from "@/app/aws.js"
+
+const client = new BedrockRuntimeClient({region: "us-east-1",
+	credentials:{
+		accessKeyId:info.accessKeyId,
+		secretAccessKey:info.secretAccessKey,
+	}
+});
 
 const askAi = async (message) => {
     const request = {
@@ -41,11 +48,7 @@ const askAi = async (message) => {
         res = "failed"
     }
 
-	console.log(res)
-
     return res
 };
 
-askAi("Hello")
-
-//export default askAi
+export default askAi;
