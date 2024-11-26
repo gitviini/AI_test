@@ -1,10 +1,7 @@
-import { NextRequest } from "next/server"
-
 export default function Home() {
-  let req = NextRequest
   return (
     <main
-      className="flex flex-1 flex-col gap-2 items-center justify-center font-mono h-screen">
+      className="flex flex-1 flex-col gap-2 items-center justify-center font-mono h-full">
       <div className="flex flex-col items-start gap-4">
         <h1 className="text-5xl font-bold">
           Hi,<br /><span className="text-white/[.5]">AI bot here!</span>
