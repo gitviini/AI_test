@@ -4,7 +4,7 @@ export default function Home() {
       className="flex flex-1 flex-col gap-2 items-center justify-center font-mono h-full">
       <div className="flex flex-col items-start gap-4">
         <h1 className="text-5xl font-bold">
-          Hi,<br /><span className="text-white/[.5]">AI bot here!</span>
+          AI GEN
         </h1>
         <ol className="list-inside list-decimal text-lg">
           <li>Tudo começa com uma ideia.</li>

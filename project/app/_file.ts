@@ -1,0 +1,24 @@
+import { promises as fs } from "fs";
+
+async function action(formData: FormData) {
+    "use server"
+    //pegando informações do arquivo no input file
+    const file = formData.get("file") as File;
+    //verifica se há o arquivo e seu tamanho, caso seja inapropriado, retornará um erro
+    if (!file || file.size === 0) {
+        return { error: "Não há arquivo" }
+    }
+    //recebendo buffer do arquivo img
+    const data = await file.arrayBuffer()
+    //criando novo arquivo com o conteúdo recebido
+    await fs.writeFile(`${process.cwd()}/${file.name}`, Buffer.from(data))
+}
+
+/*
+EXEMPLO DE CÓDIGO
+
+<form action={action}>
+        <input type="file" name="file" accept="image/*" />
+        <button>enviar</button>
+      </form>
+*/
