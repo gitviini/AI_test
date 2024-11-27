@@ -1,14 +1,17 @@
+"use server"
+
 import {
     BedrockRuntimeClient,
     InvokeModelCommand,
 } from "@aws-sdk/client-bedrock-runtime"; // ES Modules import
 
-import info from "@/app/aws.js"
+const ACCESS_KEY = process.env.ACCESS_KEY
+const SECRET_ACCESS_KEY = process.env.SECRET_ACCESS_KEY
 
 const client = new BedrockRuntimeClient({region: "us-east-1",
 	credentials:{
-		accessKeyId:info.accessKeyId,
-		secretAccessKey:info.secretAccessKey,
+		accessKeyId:ACCESS_KEY,
+		secretAccessKey:SECRET_ACCESS_KEY,
 	}
 });
 
