@@ -2,6 +2,7 @@
 import HeaderDefault from "@/components/Header";
 import { useState } from "react";
 import askAi from "@/app/_api.js"
+import action from "@/app/_file";
 
 interface Item {
 	id:number,
@@ -10,7 +11,6 @@ interface Item {
 }
 
 export default function Chat() {
-	//askAi("hello")
     const [prompt, setPrompt] = useState("")
     const [listRes, setList] = useState<Array<Item>>([])
     return (

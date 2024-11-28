@@ -14,6 +14,8 @@ async function action(formData: FormData) {
     await fs.writeFile(`${process.cwd()}/${file.name}`, Buffer.from(data))
 }
 
+export default action
+
 /*
 EXEMPLO DE CÓDIGO
 

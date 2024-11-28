@@ -27,16 +27,24 @@
 }
 
 :root {
-  --background: #ffffff;
+  --background: #ededed;
   --foreground: #171717;
+  --orange: #FFBF61;
+  --green: #8ABFA3;
+  --yellow: #FFE6A5;
+  --purple: #605678;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --orange: #FFBF61;
+    --green: #8ABFA3;
+    --yellow: #FFE6A5;
+    --purple: #605678;
   }
-}
+} */
 
 html{
   width:100%;

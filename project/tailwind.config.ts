@@ -11,7 +11,15 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        purple: "var(--purple)",
+        yellow:"var(--yellow)",
+        orange:"var(--orange)",
+        green:"var(--green)",
       },
+      boxShadow: {
+        "initial": "0.25rem 0.25rem 0 #000",
+        "hover": "0.125rem 0.125rem 0 #000",
+      }
     },
   },
   plugins: [],
