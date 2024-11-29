@@ -2,7 +2,7 @@
 import HeaderDefault from "@/components/Header";
 import { useState } from "react";
 import askAi from "@/app/_api.js"
-import action from "@/app/_file";
+// import action from "@/app/_file";
 
 interface Item {
 	id:number,
@@ -44,7 +44,6 @@ export default function Chat() {
 						request:prompt,
 						response:res},
 					])
-					console.log(listRes)
 					setPrompt("")
                		}
                	}

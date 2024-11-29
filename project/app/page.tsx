@@ -1,7 +1,7 @@
 "use client"
 
-import Link from "next/link"
 import Image from "next/image"
+import Button from "@/components/UI/Button"
 
 export default function Home() {
   return (
@@ -15,14 +15,10 @@ export default function Home() {
           <li>Tudo começa com uma ideia.</li>
           <li>E termina com um produto.</li>
         </ol>
-        <Link href="/pages"
-          className="border-2 border-black p-1 rounded-xl shadow-initial hover:shadow-hover hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition"
-          >
-          Começar
-        </Link>
+        <Button href="/pages" content="começar"/>
       </div>
       <div
-      className="flex flex-row justify-evenly items-center h-16 border-black border-t-2 w-full gap-2">
+      className="flex flex-row justify-center items-center h-16 border-black border-t-2 w-full gap-12">
         <Image
           src={require("@/assets/images/logo_etepd_sem_fundo.png")}
           width={70}
