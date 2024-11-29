@@ -17,8 +17,8 @@ export default function Home() {
         </ol>
         <Button href="/pages" content="começar"/>
       </div>
-      <div
-      className="flex flex-row justify-center items-center h-16 border-black border-t-2 w-full gap-12">
+      <footer
+        className="flex flex-row justify-center items-center h-16 border-black border-t-2 w-full gap-12">
         <Image
           src={require("@/assets/images/logo_etepd_sem_fundo.png")}
           width={70}
@@ -36,7 +36,7 @@ export default function Home() {
           height={0}
           alt=""
         />
-      </div>
+      </footer>
     </main>
   )
 }

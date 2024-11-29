@@ -1,6 +1,10 @@
 import Link from "next/link"
 
-export default function HeaderDefault() {
+export default function HeaderDefault({
+    children,
+}:{
+    children: React.ReactNode
+}) {
     return (
         <div>
             <header className="w-full">
@@ -17,6 +21,7 @@ export default function HeaderDefault() {
                             <i className="bi bi-terminal text-3xl"></i>
                             <h2 className="font-bold text-xl">AI bot</h2>
                         </li>
+                        {children}
                     </ul>
                 </nav>
             </header>

@@ -17,8 +17,8 @@ const config: Config = {
         green:"var(--green)",
       },
       boxShadow: {
-        "initial": "0.25rem 0.25rem 0 #000",
-        "hover": "0.125rem 0.125rem 0 #000",
+        "initial": "0.25rem 0.25rem 0 var(--foreground)",
+        "hover": "0.125rem 0.125rem 0 var(--foreground)",
       }
     },
   },
