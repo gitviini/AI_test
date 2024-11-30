@@ -15,10 +15,17 @@ export default function Home() {
           <li>Tudo começa com uma ideia.</li>
           <li>E termina com um produto.</li>
         </ol>
+<<<<<<< HEAD
         <Button href="/pages" content={"Começar"}/>
       </div>
       <footer
       className="flex flex-row justify-evenly items-center h-16 border-foreground border-t-2 w-full gap-2">
+=======
+        <Button href="/pages" content="começar"/>
+      </div>
+      <footer
+        className="flex flex-row justify-center items-center h-16 border-black border-t-2 w-full gap-12">
+>>>>>>> refs/remotes/origin/next
         <Image
           src={require("@/assets/images/logo_etepd_sem_fundo.png")}
           width={70}

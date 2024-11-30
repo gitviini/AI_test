@@ -24,3 +24,20 @@ EXEMPLO DE CÓDIGO
         <button>enviar</button>
       </form>
 */
+
+// 'use client'
+ 
+// import { useState } from 'react'
+ 
+// export default function Dashboard({
+//   children,
+// }: {
+//   children: React.ReactNode
+// }) {
+ 
+//   return (
+//     <>
+//       {children}
+//     </>
+//   )
+// }

@@ -1,8 +1,9 @@
 'use client';
-import HeaderDefault from "@/components/Header";
+import Link from "next/link";
+// import HeaderDefault from "@/components/Header";
 import { useState } from "react";
 import askAi from "@/app/_api.js"
-import action from "@/app/_file";
+// import action from "@/app/_file";
 
 interface Item {
 	id:number,
@@ -11,11 +12,34 @@ interface Item {
 }
 
 export default function Chat() {
+	const [stateBar, setStateBar] = useState(false)
     const [prompt, setPrompt] = useState("")
     const [listRes, setList] = useState<Array<Item>>([])
     return (
         <main className="font-mono h-full w-full max-h-full flex flex-col justify-start items-center overflow-hidden">
-            <HeaderDefault />
+            {/* <HeaderDefault>
+			</HeaderDefault> */}
+			<header
+				className={`fixed left-0 box-border border-r-2 border-foreground h-full transition-all ${stateBar ? "w-1/5" : "w-14"}`}
+				onDoubleClick={()=>setStateBar(!stateBar)}
+				>
+				<nav className="w-full h-full">
+					<ul 
+						className="flex flex-col justify-between items-center w-full h-full py-2"
+						>
+						<li>
+							<Link href="/">
+								<i className="bi bi-house text-4xl"></i>
+							</Link>
+						</li>
+						<li>
+							<Link href="/Config">
+								<i className="bi bi-gear text-4xl transform hover:rotate-180 transition-all"></i>
+							</Link>
+						</li>
+					</ul>
+				</nav>
+			</header>
             <div className="flex flex-col justify-start items-center p-4 max-w-3/5 w-3/5 max-h-4/5 h-4/5 min-w-80 overflow-hidden">
 
 				<ul className="flex flex-1 flex-col w-full h-full justify-start items-start overflow-y-auto pr-1 gap-2">
@@ -44,7 +68,6 @@ export default function Chat() {
 						request:prompt,
 						response:res},
 					])
-					console.log(listRes)
 					setPrompt("")
                		}
                	}
