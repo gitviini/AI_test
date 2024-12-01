@@ -8,24 +8,17 @@ export default function Home() {
     <main
       className="flex flex-1 flex-col gap-2 items-center justify-between font-mono h-full">
       <div className="flex flex-col items-start justify-center gap-4 h-full">
-        <h1 className="text-5xl font-bold">
+        <h1 className="text-5xl font-bold m-0">
           AI GEN
         </h1>
-        <ol className="list-inside list-decimal text-lg">
+        <ol className="list-inside list-decimal text-lg p-0 m-0">
           <li>Tudo começa com uma ideia.</li>
           <li>E termina com um produto.</li>
         </ol>
-<<<<<<< HEAD
-        <Button href="/pages" content={"Começar"}/>
-      </div>
-      <footer
-      className="flex flex-row justify-evenly items-center h-16 border-foreground border-t-2 w-full gap-2">
-=======
-        <Button href="/pages" content="começar"/>
+        <Button href="/pages">começar</Button>
       </div>
       <footer
         className="flex flex-row justify-center items-center h-16 border-black border-t-2 w-full gap-12">
->>>>>>> refs/remotes/origin/next
         <Image
           src={require("@/assets/images/logo_etepd_sem_fundo.png")}
           width={70}

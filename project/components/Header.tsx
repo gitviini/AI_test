@@ -1,11 +1,7 @@
 import Link from "next/link"
 import { useState } from "react"
 
-export default function HeaderDefault({
-    children,
-}:{
-    children: React.ReactNode
-}) {
+export default function HeaderDefault({children}:{children: React.ReactNode}) {
     return (
         <div>
             <header className="w-full">
