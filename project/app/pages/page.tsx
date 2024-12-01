@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import askAi from "@/app/_api.js"
 import action from "@/app/_file";
+import Pressable from "@/components/UI/Pressable";
 
 interface Item {
 	id:number,
@@ -59,10 +60,8 @@ export default function Chat() {
 				listRes?.map((item)=>(
 					<li key={item?.id}
 					className="flex flex-col gap-2 justify-start rounded-md text-black w-full h-auto">
-						<p 
-							className="p-2 rounded-md bg-white/[.20] text-white self-end">{item?.request}</p>
-						<p
-							className="p-2 rounded-md bg-blue-200 self-start">{item?.response}</p>
+						<p className="p-2 rounded-2xl rounded-tr-md bg-orange text-foreground self-end">{item?.request}</p>
+						<p className="p-2 rounded-2xl rounded-tl-md bg-blue-300 text-foreground self-start">{item?.response}</p>
 					</li>
 				))}
 				</ul>
@@ -84,14 +83,15 @@ export default function Chat() {
                		}
                	}
                    className="flex flex-row gap-2 p-4 justify-center items-end w-3/5 min-h-1/5 max-h-1/5 min-w-80">
-                  <input value={prompt} className="bg-yellow-50 text-black outline-none p-2 rounded-md transition duration-200 w-full"
-                      type="text" required placeholder="Prompt"
-                      onChange={
-                       	async e=>{
-							// Configurando valor do input
-                       		setPrompt(e.target.value)}
-                       	} />
-                  <button className="p-2 bg-sky-800 rounded-md transition duration-200">enviar</button>
+                  <input value={prompt} 
+				  		className="bg-background border-2 border-foreground p-2 rounded-xl shadow-initial hover:shadow-hover hover:translate-x-0.5 hover:translate-y-0.5 focus:translate-x-1 focus:translate-y-1 focus:shadow-none text-foreground no-underline transition w-full"
+                    	type="text" required placeholder="Prompt"
+                      	onChange={
+                       		async e=>{
+								// Configurando valor do input
+								setPrompt(e.target.value)}
+                       		} />
+				  <Pressable>Enviar</Pressable>
             </form>
         </main>
     )
