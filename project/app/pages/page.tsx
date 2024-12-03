@@ -3,16 +3,18 @@ import Link from "next/link";
 // import HeaderDefault from "@/components/Header";
 import { useState } from "react";
 import askAi from "@/app/_api.js"
-import action from "@/app/_file";
 import Pressable from "@/components/UI/Pressable";
+import Item from "@/assets/contants/ItemInterface";
+import FileItem from "@/assets/contants/FileItemInterface";
+import FileModel from "@/components/UI/FileModel";
 
-interface Item {
-	id:number,
-	request:string,
-	response:string,
+const form:FileItem = {
+	id:0,
+	form: new FormData(),
 }
 
 export default function Chat() {
+	const [filesList,setFilesList] = useState<Array<FileItem>>([form])
 	const [stateBar, setStateBar] = useState(false)
     const [prompt, setPrompt] = useState("")
     const [listRes, setList] = useState<Array<Item>>([])
@@ -22,11 +24,11 @@ export default function Chat() {
 			</HeaderDefault> */}
 			<header
 				className={`fixed bg-background left-0 box-border border-r-2 border-foreground h-full transition-all ${stateBar ? "w-1/2" : "w-14"}`}
-				onDoubleClick={()=>setStateBar(!stateBar)}
+				onDoubleClick={()=>{setStateBar(!stateBar)}}
 				>
 				<nav className="w-full h-full">
 					<ul 
-						className="flex flex-col p-3 justify-between items-start w-full h-full overflow-hidden"
+						className="flex flex-col p-2 justify-between items-center w-full h-full overflow-hidden"
 						>
 						<li>
 							<Link href="/">
@@ -34,18 +36,10 @@ export default function Chat() {
 							</Link>
 						</li>
 						<li>
-							<form action={action}>
-								<label htmlFor="file"
-									className="p-1 cursor-pointer">
-										<i className="bi bi-file-earmark-plus-fill"></i>
-								</label>
-								<input type="file" name="file" id="file" accept="text/*"
-									className="hidden"/>
-								<button>enviar</button>
-							</form>
+							<FileModel filesList={filesList} stateBar={stateBar}/>			
 						</li>
 						<li>
-							<Link href="/Config">
+							<Link href="/config">
 								<i className="bi bi-gear transform hover:rotate-180 transition-all"></i>
 							</Link>
 						</li>
