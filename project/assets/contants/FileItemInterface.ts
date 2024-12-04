@@ -1,6 +1,7 @@
 interface FileItem {
-	id:number,
-	form:FormData | void | undefined,
+  id: number;
+  name: string | undefined;
+  form: FormData | void | undefined;
 }
 
-export default FileItem
+export default FileItem;
