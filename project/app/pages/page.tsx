@@ -35,8 +35,11 @@ export default function Chat() {
 								<i className="bi bi-house"></i>
 							</Link>
 						</li>
-						<li>
-							{(stateBar ? <FileModel filesList={filesList} stateBar={stateBar} /> : <button onClick={() => setStateBar(!stateBar)}><i className="bi bi-arrow-right"></i></button>)}
+						<li className={(stateBar ? "" : "hidden")}>
+							<FileModel filesList={filesList} stateBar={stateBar} />
+						</li>
+						<li className={(stateBar ? "hidden" : "")}>
+						<button onClick={() => setStateBar(!stateBar)}><i className="bi bi-arrow-right"></i></button>
 						</li>
 						<li>
 							<Link href="/config">
