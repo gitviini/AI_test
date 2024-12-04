@@ -3,7 +3,6 @@
 import action from "@/app/_file";
 import FileItem from "@/assets/contants/FileItemInterface";
 import { useState } from "react";
-import { useState } from "react";
 
 export default function FileModel({ stateBar }: { stateBar: boolean }) {
   const [fileName, setFileName] = useState<string | undefined>("");
