@@ -1,5 +1,4 @@
 "use server"
-import { promises as fs } from "fs";
 
 async function action(formData: FormData) {
     //pegando informações do arquivo no input file
@@ -13,7 +12,7 @@ async function action(formData: FormData) {
     const data = await file.text()
     //criando novo arquivo com o conteúdo recebido
     //await fs.writeFile(`${process.cwd()}/${file.name}`, Buffer.from(data))
-    console.log(data)
+    // console.log(data)
 }
 
 export default action

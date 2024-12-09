@@ -36,8 +36,8 @@ export default function Chat() {
                 <i className="bi bi-house"></i>
               </Link>
             </li>
-            <li className={stateBar ? "" : "hidden"}>
-              <FileModel stateBar={stateBar} />
+            <li className={stateBar ? "flex flex-col justify-center items-center" : "hidden"}>
+              <FileModel />
             </li>
             <li className={stateBar ? "hidden" : ""}>
               <button onClick={() => setStateBar(!stateBar)}>
