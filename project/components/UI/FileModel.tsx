@@ -4,33 +4,38 @@ import action from "@/app/_file";
 import FileItem from "@/assets/contants/FileItemInterface";
 import { useState } from "react";
 
-export default function FileModel() {
+export default function FileModel({filesList,setFilesList}:{filesList:Array<FileItem>,setFilesList:Function}) {
   const [fileName, setFileName] = useState<string | undefined>("");
-  const [filesList, setFilesList] = useState<Array<FileItem>>([]);
   return (
     <>
-      <div className="mb-2 flex flex-col gap-2 justify-center items-center w-3/4">
+      <div className="mb-2 flex flex-col gap-2 justify-center items-center max-w-3/4 w-3/4">
         {filesList?.map((file) => (
           <div
             key={file.id}
-            className="text-ellipsis overflow-hidden text-nowrap translate-x-1 cursor-pointer border-2 border-foreground p-2 rounded-xl text-foreground no-underline transition w-full"
+            className="hover:bg-red-400 file text-ellipsis overflow-hidden text-nowrap translate-x-1 cursor-pointer border-2 border-foreground p-2 rounded-xl text-foreground no-underline transition w-full"
+            onClick={()=>{
+              const NewFilesList = [...filesList]
+              NewFilesList.splice(file.id,1)
+              for(let i = 0; i < NewFilesList.length; i++){
+                NewFilesList[i].id = i
+              }
+              setFilesList(NewFilesList)
+            }}
           >
-            {file.name}
+            <i className="bi bi-trash"></i>
+            <span>{file.name}</span>
           </div>
         ))}
       </div>
       <form
-        action={action}
+        action={async (formData)=>
+          setFilesList([...filesList,{
+            id:filesList.length,
+            name:fileName,
+            content: await action(formData)
+        }])}
         className={`${filesList.length == 0 && !fileName ? "w-auto" : "w-3/4"} flex flex-col gap-2 justify-center items-start`}
         onSubmit={(e) => {
-          setFilesList([
-            ...filesList,
-            {
-              id: filesList.length + 1,
-              name: fileName,
-              form: new FormData(),
-            },
-          ])
           setFileName("")
         }}
       >
@@ -61,7 +66,7 @@ export default function FileModel() {
             }
             setFileName(inputFile)
           }
-          }
+        }
         />
         <div className="flex flex-row gap-2 w-full">
           <button

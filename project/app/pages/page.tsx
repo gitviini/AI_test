@@ -1,28 +1,25 @@
 "use client";
 import Link from "next/link";
-// import HeaderDefault from "@/components/Header";
 import { useState } from "react";
-import askAi from "@/app/_api.js";
+import askAi from "@/app/_api";
 import Pressable from "@/components/UI/Pressable";
 import Item from "@/assets/contants/ItemInterface";
 import FileItem from "@/assets/contants/FileItemInterface";
 import FileModel from "@/components/UI/FileModel";
-import Button from "@/components/UI/Button";
-
-const form: FileItem = {
-  id: 0,
-  form: new FormData(),
-};
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 export default function Chat() {
-  const [stateBar, setStateBar] = useState(false);
-  const [prompt, setPrompt] = useState("");
-  const [listRes, setList] = useState<Array<Item>>([]);
+  const [filesList, setFilesList] = useState<Array<FileItem>>([])
+  const [stateBar, setStateBar] = useState(false)
+  const [prompt, setPrompt] = useState("")
+  const [listRes, setList] = useState<Array<Item>>([])
+  const [stateRequest,setStateRequest] = useState(false)
   return (
-    <main className=" font-mono h-full w-full max-h-full flex flex-col justify-start items-center overflow-hidden shadow-initial">
+    <main className="font-mono h-full w-full max-h-full flex flex-col justify-start items-center overflow-hidden">
       <header
-        className={`fixed bg-background left-0 box-border border-r-2 border-foreground h-full transition-all ${
-          stateBar ? "w-1/2" : "w-14"
+        className={`fixed z-1 bg-background left-0 box-border border-r-2 border-foreground h-full transition-all ${
+          stateBar ? "w-1/2 min-w-28" : "w-14"
         }`}
         onDoubleClick={() => {
           setStateBar(!stateBar);
@@ -36,8 +33,8 @@ export default function Chat() {
                 <i className="bi bi-house"></i>
               </Link>
             </li>
-            <li className={stateBar ? "flex flex-col justify-center items-center" : "hidden"}>
-              <FileModel />
+            <li className={stateBar ? "flex flex-col justify-center items-center w-full" : "hidden"}>
+              <FileModel filesList={filesList} setFilesList={setFilesList}/>
             </li>
             <li className={stateBar ? "hidden" : ""}>
               <button onClick={() => setStateBar(!stateBar)}>
@@ -52,8 +49,12 @@ export default function Chat() {
           </ul>
         </nav>
       </header>
-      <div className="flex flex-col justify-start items-center p-4 max-w-3/5 w-3/5 max-h-4/5 h-4/5 min-w-80 overflow-hidden">
-        <ul className="flex flex-1 flex-col w-full h-full justify-start items-start overflow-y-auto pr-1 gap-2">
+
+      <div className="container_chat flex flex-col justify-center items-center pt-4 w-3/4 max-w-screen-md h-full min-w-80 overflow-hidden">
+        <ul 
+          className="flex flex-col w-full h-full justify-start items-start overflow-y-auto overflow-x-hidden gap-2 pl-0 pr-1 rounded-2xl"
+          onResize={()=>alert("oi")}
+          >
           {
             // Cria lista de respostas
             listRes?.map((item) => (
@@ -61,27 +62,30 @@ export default function Chat() {
                 key={item?.id}
                 className="flex flex-col gap-2 justify-start rounded-md text-black w-full h-auto"
               >
-                <p className="p-2 rounded-2xl rounded-tr-md bg-orange text-foreground self-end">
+                <p className="p-2 rounded-2xl rounded-tr-md bg-orange text-foreground max-w-full text-ellipsis overflow-hidden self-end">
                   {item?.request}
                 </p>
-                <p className="p-2 rounded-2xl rounded-tl-md bg-blue-300 text-foreground self-start">
+                <Markdown remarkPlugins={[remarkGfm]} className="p-2 rounded-2xl rounded-tl-md bg-blue-300 text-foreground max-w-full text-ellipsis overflow-hidden self-start">
                   {item?.response}
-                </p>
+                </Markdown>
               </li>
             ))
           }
         </ul>
       </div>
+
       <form
         action=""
         method="post"
         onSubmit={async (e) => {
           // Evita reload da página
           e.preventDefault();
+          setStateRequest(true)
           // Aciona um alerta quando houver a resposta
-          const res = await askAi(prompt);
+          const res = await askAi("comando:"+prompt,filesList);
           // Adiciona e atualiza lista de respostas
-          await setList([
+          console.log(res)
+          setList([
             ...listRes,
             {
               id: listRes.length + 1,
@@ -91,12 +95,13 @@ export default function Chat() {
           ]);
           // limpando input
           setPrompt("");
+          setStateRequest(false)
         }}
-        className="flex flex-row gap-2 p-4 justify-center items-end w-3/5 min-h-1/5 max-h-1/5 min-w-80"
+        className={`${(stateRequest ? "w-0 overflow-x-hidden" : "w-3/4 min-w-80")} max-w-screen-md flex flex-row gap-2 pb-4 justify-center items-end h-auto transition-all`}
       >
         <textarea
           value={prompt}
-          className={`resize-y max-h-28 min-h-11 outline-none bg-background border-2 border-foreground p-2 rounded-xl shadow-initial hover:shadow-hover hover:translate-x-0.5 hover:translate-y-0.5 focus:translate-x-1 focus:translate-y-1 focus:shadow-none text-foreground no-underline transition w-full`}
+          className={`resize-none max-h-28 min-h-11 outline-none bg-background border-2 border-foreground p-2 rounded-xl shadow-initial hover:shadow-hover hover:translate-x-0.5 hover:translate-y-0.5 focus:translate-x-1 focus:translate-y-1 focus:shadow-none text-foreground no-underline transition w-full`}
           required
           placeholder="Prompt"
           onChange={async (e) => {

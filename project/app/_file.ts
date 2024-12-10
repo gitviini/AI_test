@@ -8,37 +8,11 @@ async function action(formData: FormData) {
         console.log("action error:. file == null or file.size === 0")
         return
     }
-    //recebendo buffer do arquivo img
+    //recebendo buffer do arquivo
     const data = await file.text()
     //criando novo arquivo com o conteúdo recebido
     //await fs.writeFile(`${process.cwd()}/${file.name}`, Buffer.from(data))
-    // console.log(data)
+    return data
 }
 
 export default action
-
-/*
-EXEMPLO DE CÓDIGO
-
-<form action={action}>
-        <input type="file" name="file" accept="image/*" />
-        <button>enviar</button>
-      </form>
-*/
-
-// 'use client'
- 
-// import { useState } from 'react'
- 
-// export default function Dashboard({
-//   children,
-// }: {
-//   children: React.ReactNode
-// }) {
- 
-//   return (
-//     <>
-//       {children}
-//     </>
-//   )
-// }

@@ -1,7 +1,7 @@
 interface FileItem {
   id: number;
   name: string | undefined;
-  form: FormData | void | undefined;
+  content: void | string;
 }
 
 export default FileItem;
