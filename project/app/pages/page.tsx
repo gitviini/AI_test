@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import askAi from "@/app/_api";
+// import askAi from "@/app/_api";
+import askAi from "../_api_gemini";
 import Pressable from "@/components/UI/Pressable";
 import Item from "@/assets/contants/ItemInterface";
 import FileItem from "@/assets/contants/FileItemInterface";
@@ -19,7 +20,7 @@ export default function Chat() {
     <main className="font-mono h-full w-full max-h-full flex flex-col justify-start items-center overflow-hidden">
       <header
         className={`fixed z-1 bg-background left-0 box-border border-r-2 border-foreground h-full transition-all ${
-          stateBar ? "w-1/2 min-w-28" : "w-14"
+          stateBar ? "w-1/2" : "w-14"
         }`}
         onDoubleClick={() => {
           setStateBar(!stateBar);
