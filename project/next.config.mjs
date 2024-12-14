@@ -1,5 +1,5 @@
-import { createSecureHeaders } from 'next-secure-headers';
- 
+import { createSecureHeaders } from 'next-secure-headers'; 
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   headers() {
@@ -18,6 +18,8 @@ const nextConfig = {
       },
     ];
   },
+  cacheHandler: require.resolve("./cache-handler.js"),
+  cacheMaxMemorySize: 100,
 };
 
 export default nextConfig;

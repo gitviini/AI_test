@@ -11,12 +11,12 @@ interface DataPreferences {
     ai_model: string | null,
 }
 
-const getPreferences = async ():Promise<DataPreferences> =>{
+const dbGetPreferences = async ():Promise<DataPreferences> =>{
     return await prisma.users.findUnique({where:{id:1}})
 }
 
-const setPreferences = async (newPreferences:string) =>{
-    return await prisma.users.update({data:{id:1,name:"ana",preferences:newPreferences},where:{id:1}})
+const dbSetPreferences = async (newPreferences:DataPreferences) =>{
+    return await prisma.users.update({data:{id:1,...newPreferences},where:{id:1}})
 }
 
-export {getPreferences,setPreferences}
+export {dbGetPreferences,dbSetPreferences}

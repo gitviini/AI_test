@@ -2,8 +2,12 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { getPreferences,setPreferences } from "../_db";
+import { dbGetPreferences,dbSetPreferences } from "../_db";
 import Pressable from "@/components/UI/Pressable";
+
+import { CacheHandler, CacheHandlerContext} from "next/dist/server/lib/incremental-cache";
+
+const cachehandler = new CacheHandler()
 
 interface DataPreferences {
     name: string,
@@ -40,8 +44,15 @@ export default function Config() {
     })
 
     useEffect(() => {
-        getPreferences()
-            .then(_prefe=>console.log(_prefe))
+        dbGetPreferences()
+            .then(data=>{
+                setPreferences({
+                    name: data.name ? data.name : preferences.name,
+                    theme: data.theme ? data.theme : preferences.theme,
+                    typing_mode: data.typing_mode ? data.typing_mode : preferences.typing_mode,
+                    ai_model: data.ai_model ? data.ai_model : preferences.ai_model
+                })
+            })
     }, [])
 
     return (
@@ -100,7 +111,10 @@ export default function Config() {
                         </li>
                     ))}
                 </ul>
-                <Pressable onClick={()=>alert(JSON.stringify(preferences))}>
+                <Pressable onClick={()=>
+                    dbSetPreferences(preferences)
+                    .then(res=>console.log(res))
+                    }>
                     salvar
                 </Pressable>
             </div>
