@@ -1,8 +1,8 @@
 "use client"
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { getPreferences,setPreferences } from "../_db";
+import {useState, useEffect} from "react";
+import { dbGetPreferences, dbSetPreferences} from "../_db";
 import Pressable from "@/components/UI/Pressable";
 
 interface DataPreferences {
@@ -17,31 +17,33 @@ export default function Config() {
     const template = {
         theme: {
             name: "Tema",
-            default: "light",
             list: ["light", "dark"],
         },
         ai_model: {
             name: "Modelo de IA",
-            default: "GEMINI-1.5-flash Google",
             list: ["JAMBA-large AI.21", "GEMINI-1.5-flash Google"],
         },
         typing_mode: {
             name: "Modelo de escrita",
-            default: "conversation",
-            list: ["conversation", "Text"],
+            list: ["text","trilha"],
         },
     }
 
     const [preferences, setPreferences] = useState<DataPreferences>({
-        name: "User",
-        theme: "light",
-        typing_mode: "conversation",
-        ai_model: "GEMINI-1.5-flash Google",
+            name: "User",
+            theme: "dark",
+            typing_mode: "trilha",
+            ai_model: "GEMINI-1.5-flash Google",
     })
 
     useEffect(() => {
-        getPreferences()
-            .then(_prefe=>console.log(_prefe))
+        dbGetPreferences()
+            .then((tmp_preferences)=>tmp_preferences ? setPreferences({
+                name:tmp_preferences.name,
+                theme:tmp_preferences.theme,
+                ai_model:tmp_preferences.ai_model,
+                typing_mode:tmp_preferences.typing_mode,
+                }) : {})
     }, [])
 
     return (
@@ -66,11 +68,11 @@ export default function Config() {
             </header>
 
             <div
-                className="flex flex-col justify-center items-start w-4/5 pt-4 pl-12"
+                className={`${preferences.name == "User" ? "opacity-50 pointer-events-none" : "opacity-100 pointer-events-auto"} flex flex-col justify-center items-start w-4/5 pt-4 pl-12 transition-opacity duration-500`}
             >
                 <h2>Configurações - {preferences.name}</h2>
 
-                <ul className="flex flex-row gap-2 items-center justify-start flex-wrap p-0">
+                {/* <ul className="flex flex-row gap-2 items-center justify-start flex-wrap p-0">
                     <span className="text-xl w-full">{template.theme.name}</span>
                     {template.theme.list.map(item => (
                         <li key={item} 
@@ -79,7 +81,7 @@ export default function Config() {
                             {item}
                         </li>
                     ))}
-                </ul>
+                </ul> */}
                 <ul className="flex flex-row gap-2 items-center justify-start flex-wrap p-0">
                     <span className="text-xl w-full">{template.ai_model.name}</span>
                     {template.ai_model.list.map(item => (
@@ -94,13 +96,15 @@ export default function Config() {
                     <span className="text-xl w-full">{template.typing_mode.name}</span>
                     {template.typing_mode.list.map(item => (
                         <li key={item} 
-                            className={`${( preferences.typing_mode == item ? "bg-foreground text-background" : {})} cursor-pointer border-2 border-foreground p-2 rounded-2xl hover:bg-foreground hover:text-background hover:-translate-y-1 active:translate-y-0 transform transition`}
+                            className={`${(preferences.typing_mode == item ? "bg-foreground text-background" : {})} cursor-pointer border-2 border-foreground p-2 rounded-2xl hover:bg-foreground hover:text-background hover:-translate-y-1 active:translate-y-0 transform transition`}
                             onClick={()=>{preferences.typing_mode = item;setPreferences({...preferences})}}>
                             {item}
                         </li>
                     ))}
                 </ul>
-                <Pressable onClick={()=>alert(JSON.stringify(preferences))}>
+                <Pressable onClick={()=>{
+                    dbSetPreferences(preferences.theme,preferences.typing_mode,preferences.ai_model)
+                }}>
                     salvar
                 </Pressable>
             </div>
