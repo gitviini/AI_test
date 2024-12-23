@@ -18,7 +18,6 @@ const nextConfig = {
       },
     ];
   },
-  cacheHandler: require.resolve("./cache-handler.js"),
   cacheMaxMemorySize: 100,
 };
 

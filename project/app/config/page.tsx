@@ -1,18 +1,9 @@
 "use client"
 
 import Link from "next/link";
-<<<<<<< HEAD
-import {useState, useEffect} from "react";
-import { dbGetPreferences, dbSetPreferences} from "../_db";
-=======
 import { useState, useEffect } from "react";
 import { dbGetPreferences,dbSetPreferences } from "../_db";
->>>>>>> origin/next
 import Pressable from "@/components/UI/Pressable";
-
-import { CacheHandler, CacheHandlerContext} from "next/dist/server/lib/incremental-cache";
-
-const cachehandler = new CacheHandler()
 
 interface DataPreferences {
     name: string,
@@ -47,23 +38,12 @@ export default function Config() {
 
     useEffect(() => {
         dbGetPreferences()
-<<<<<<< HEAD
             .then((tmp_preferences)=>tmp_preferences ? setPreferences({
                 name:tmp_preferences.name,
                 theme:tmp_preferences.theme,
                 ai_model:tmp_preferences.ai_model,
                 typing_mode:tmp_preferences.typing_mode,
                 }) : {})
-=======
-            .then(data=>{
-                setPreferences({
-                    name: data.name ? data.name : preferences.name,
-                    theme: data.theme ? data.theme : preferences.theme,
-                    typing_mode: data.typing_mode ? data.typing_mode : preferences.typing_mode,
-                    ai_model: data.ai_model ? data.ai_model : preferences.ai_model
-                })
-            })
->>>>>>> origin/next
     }, [])
 
     return (
@@ -122,16 +102,9 @@ export default function Config() {
                         </li>
                     ))}
                 </ul>
-<<<<<<< HEAD
                 <Pressable onClick={()=>{
                     dbSetPreferences(preferences.theme,preferences.typing_mode,preferences.ai_model)
                 }}>
-=======
-                <Pressable onClick={()=>
-                    dbSetPreferences(preferences)
-                    .then(res=>console.log(res))
-                    }>
->>>>>>> origin/next
                     salvar
                 </Pressable>
             </div>
