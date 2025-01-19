@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import Button from "@/components/UI/Button"
+import etePortoDigitalImage from "@/assets/images/logo_etepd_sem_fundo.png"
 
 export default function Home() {
   return (
@@ -20,7 +21,7 @@ export default function Home() {
       <footer
         className="flex flex-row justify-center items-center h-16 border-black border-t-2 w-full gap-12">
         <Image
-          src={require("@/assets/images/logo_etepd_sem_fundo.png")}
+          src={etePortoDigitalImage}
           width={70}
           alt=""
         />
