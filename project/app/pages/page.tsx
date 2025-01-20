@@ -39,7 +39,7 @@ export default function Chat() {
     )
   }, [])
   return (
-    <main className="font-mono h-full w-full max-h-full flex flex-col justify-start items-center overflow-hidden">
+    <main className="pl-8 font-mono h-full w-full max-h-full flex flex-col justify-start items-center overflow-hidden">
       <header
         className={`fixed z-1 bg-background left-0 box-border border-r-2 border-foreground h-full transition-all ${stateBar ? "w-1/2" : "w-14"
           }`}
