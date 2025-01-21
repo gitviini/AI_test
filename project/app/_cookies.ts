@@ -18,7 +18,7 @@ async function setCookie(preferences:DataPreferences | null){
 async function getCookie(name:string){
     const cookiemanage = await cookies()
     const tmp_value = cookiemanage.get(name)?.value
-    return JSON.parse(tmp_value ? tmp_value : "{}" )
+    return tmp_value ? JSON.parse(tmp_value) : ""
 }
 
 export {getCookie,setCookie}

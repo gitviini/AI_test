@@ -18,6 +18,7 @@ interface DataPreferences {
   theme: string | null,
   typing_mode: string,
   ai_model: string | null,
+  trial_model: string | null,
 }
 
 export default function Chat() {
@@ -32,11 +33,13 @@ export default function Chat() {
     theme: "dark",
     typing_mode: "trilha",
     ai_model: "GEMINI-1.5-flash Google",
+    trial_model: "",
   })
 
   useEffect(() => {
     getCookie("preferences").then(
       tmp_preferences => {
+        console.log(tmp_preferences)
         !tmp_preferences ? router.replace('/login') : setPreferences(tmp_preferences)
       }
     )
