@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/pages/api/route.ts", "app/_api.js", "app/_api_gemini.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/pages/api/route.ts", "app/_api.js", "app/_api_gemini.js", "app/api/create.js", "app/api/auth.js"],
   "exclude": ["node_modules"]
 }
