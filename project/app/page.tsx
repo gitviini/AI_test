@@ -1,6 +1,5 @@
 "use client"
 
-import { getCookie } from "./_cookies"
 import Image from "next/image"
 import Button from "@/components/UI/Button"
 import etePortoDigitalImage from "@/assets/images/logo_etepd_sem_fundo.png"

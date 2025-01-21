@@ -15,10 +15,6 @@ interface DataPreferences {
     trial_model: string | null,
 }
 
-interface dbError {
-    errorMessage: string
-}
-
 export default function Config() {
     const router = useRouter()
     const template = {
@@ -51,12 +47,11 @@ export default function Config() {
 
     useEffect(() => {
         getCookie("preferences").then(
-            tmp_preferences => {
-                !tmp_preferences ? router.replace('/login') : setPreferences(tmp_preferences)
-            }
+            tmp_preferences => !tmp_preferences ? router.replace('/login') : setPreferences(tmp_preferences)
         )
-            .catch(err => setDbError("Falha na conexão com o banco de dados"))
-    }, [])
+            .catch(()=> setDbError("Falha na conexão com o banco de dados"))
+        
+    })
 
     return (
         <main className="font-mono h-full w-full max-h-full flex flex-col justify-start items-center overflow-y-auto">
@@ -105,11 +100,11 @@ export default function Config() {
                                 onClick={() => {
                                     setCookie(null)
                                     dbDeleteAccount(preferences.name)
-                                        .then(e => {
+                                        .then(() => {
                                             router.replace('/login')
                                         }
                                         )
-                                        .catch(e => { })
+                                        .catch(() => { })
                                 }}
                             >
                                 deletar

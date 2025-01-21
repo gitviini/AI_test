@@ -8,7 +8,7 @@ import handle from "../api/user/auth"
 import Info from "@/assets/contants/InfoInterface"
 import { useRouter } from 'next/navigation'
 import { setCookie } from "../_cookies"
-import { dbGetPreferences, dbSetPreferences } from "../_db"
+import { dbGetPreferences } from "../_db"
 
 export default function Login() {
     const router = useRouter()
@@ -38,7 +38,7 @@ export default function Login() {
                                 setMessageColor("green")
                                 dbGetPreferences(userName).then(
                                     e=>{
-                                        e ? setCookie(e) : e
+                                        if(e){setCookie(e)}
                                         router.replace("/pages")
                                     }
                                 )

@@ -1,6 +1,6 @@
 "use server"
 
-import { PrismaClient, Prisma} from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 import { setCookie } from "./_cookies";
 
 const prisma = new PrismaClient({})
@@ -11,10 +11,6 @@ interface DataPreferences {
     typing_mode: string | null,
     ai_model: string | null,
     trial_model: string | null
-}
-
-interface dbError {
-    errorMessage: string
 }
 
 const dbDeleteAccount = async (name:string) => {

@@ -1,10 +1,9 @@
 "use server"
 import { createHash } from "crypto";
 // Prisma will help handle and catch errors
-import { Prisma, PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient({})
 
-import Info from "@/assets/contants/InfoInterface";
 export default async function handle(name:string, password:string) {
   return createUserHandler(name, password)
 }

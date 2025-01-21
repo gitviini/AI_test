@@ -1,6 +1,6 @@
 "use server"
 
-import { Prisma, PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient({})
 import { hashPassword } from "./create";
 export default async function handle(name:string, password:string) {

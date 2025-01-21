@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import handle from "../api/user/create";
 import Link from "next/link"
 import faviconImage from "@/app/favicon.ico"
@@ -10,10 +10,7 @@ import { useRouter } from "next/navigation";
 
 function Signup() {
   const router = useRouter()
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState(true);
-  const [passError, setPassError] = useState(false);
   const [message, setMessage] = useState("");
 
   const [userName, setUserName] = useState('')

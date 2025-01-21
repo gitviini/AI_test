@@ -3,8 +3,9 @@
 import action from "@/app/_file";
 import FileItem from "@/assets/contants/FileItemInterface";
 import { useState } from "react";
+import { Dispatch, SetStateAction} from "react";
 
-export default function FileModel({filesList,setFilesList}:{filesList:Array<FileItem>,setFilesList:Function}) {
+export default function FileModel({filesList,setFilesList}:{filesList:Array<FileItem>,setFilesList:Dispatch<SetStateAction<FileItem[]>>}) {
   const [fileName, setFileName] = useState<string | undefined>("");
   return (
     <>
@@ -35,7 +36,7 @@ export default function FileModel({filesList,setFilesList}:{filesList:Array<File
             content: await action(formData)
         }])}
         className={`${filesList.length == 0 && !fileName ? "w-auto" : "w-3/4"} flex flex-col gap-2 justify-center items-start`}
-        onSubmit={(e) => {
+        onSubmit={() => {
           setFileName("")
         }}
       >
@@ -61,7 +62,7 @@ export default function FileModel({filesList,setFilesList}:{filesList:Array<File
             if (inputFile == "" || exists) {
               e.preventDefault()
               setFileName("")
-              exists ? alert(`Arquivo ${fileName} já anexado`) : alert("Arquivo com nome inválido")
+              alert(exists ? `Arquivo ${fileName} já anexado` : "Arquivo com nome inválido")
               return
             }
             setFileName(inputFile)
