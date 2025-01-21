@@ -15,4 +15,5 @@ model users {
   theme       String? @db.VarChar(10)
   ai_model    String? @db.VarChar(25)
   typing_mode String? @db.VarChar(20)
+  trial_model String? @db.Text()
 }

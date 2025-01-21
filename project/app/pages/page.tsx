@@ -75,7 +75,6 @@ export default function Chat() {
       <div className="container_chat flex flex-col justify-center items-center pt-4 w-3/4 max-w-screen-md h-full min-w-80 overflow-hidden">
         <ul
           className="flex flex-col w-full h-full justify-start items-start overflow-y-auto overflow-x-hidden gap-2 pl-0 pr-1 rounded-2xl"
-          onResize={() => alert("oi")}
         >
           {
             // Cria lista de respostas
