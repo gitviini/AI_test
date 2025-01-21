@@ -7,9 +7,10 @@ interface DataPreferences {
     theme: string | null,
     typing_mode: string | null,
     ai_model: string | null,
+    trial_model: string | null,
 }
 
-async function setCookie(preferences:DataPreferences){
+async function setCookie(preferences:DataPreferences | null){
     const cookiemanage = await cookies()
     cookiemanage.set("preferences",JSON.stringify(preferences))
 }

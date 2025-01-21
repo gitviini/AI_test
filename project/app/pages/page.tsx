@@ -11,6 +11,7 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useEffect } from "react"
 import { getCookie } from "../_cookies";
+import { useRouter } from "next/navigation";
 
 interface DataPreferences {
   name: string,
@@ -20,6 +21,7 @@ interface DataPreferences {
 }
 
 export default function Chat() {
+  const router = useRouter()
   const [filesList, setFilesList] = useState<Array<FileItem>>([])
   const [stateBar, setStateBar] = useState(false)
   const [prompt, setPrompt] = useState("")
@@ -34,8 +36,9 @@ export default function Chat() {
 
   useEffect(() => {
     getCookie("preferences").then(
-      tmp_preferences =>
-        setPreferences(tmp_preferences? tmp_preferences : preferences)
+      tmp_preferences => {
+        !tmp_preferences ? router.replace('/login') : setPreferences(tmp_preferences)
+      }
     )
   }, [])
   return (
