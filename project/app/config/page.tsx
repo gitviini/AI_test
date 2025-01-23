@@ -51,7 +51,7 @@ export default function Config() {
         )
             .catch(()=> setDbError("Falha na conexão com o banco de dados"))
         
-    })
+    }, [getCookie])
 
     return (
         <main className="font-mono h-full w-full max-h-full flex flex-col justify-start items-center overflow-y-auto">

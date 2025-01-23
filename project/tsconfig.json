@@ -22,5 +22,5 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/pages/api/route.ts", "app/_api.js", "app/_api_gemini.js", "app/api/user/create.ts", "app/api/user/auth.ts", "app/signup/register.js"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules","sst.config.ts"]
 }

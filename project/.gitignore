@@ -37,3 +37,10 @@ yarn-error.log*
 next-env.d.ts
 
 *.Identifier
+
+# sst
+.sst
+
+
+# open-next
+.open-next

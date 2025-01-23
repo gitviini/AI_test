@@ -40,7 +40,7 @@ export default function Chat() {
     getCookie("preferences").then(
       tmp_preferences => !tmp_preferences ? router.replace('/login') : setPreferences(tmp_preferences)
     )
-  })
+  }, [getCookie])
   return (
     <main className="pl-8 font-mono h-full w-full max-h-full flex flex-col justify-start items-center overflow-hidden">
       <header
