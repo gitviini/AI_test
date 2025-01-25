@@ -1,39 +1,36 @@
-# AI test
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-> Projeto feito para melhor compreensão de IA generativa em diferentes âmbitos. <br>
-> Agora também de forma web, confira em [AI test Web](https://github.com/gitviini/AI_test/tree/web)
+## Getting Started
 
-## Navegação:
-* [Instalando](#instalando)
-* [Instalando no Windows](#windows)
-* [Instalando no Linux](#linux)
+First, run the development server:
 
-<a id="instalando"></a>
-### $ Instalando
-_**OBS** : é requerido python3.9 ou superior_
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-***Step-by-Step (Windows e Linux):***
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-<a id="windows"></a>
-### $ Windows🪟:
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-* `python -m venv dev`
-* `dev/Script/activate`
-* `pip install -q -U google-generativeai`
-* faça uma conta em [gemini api key](https://aistudio.google.com/app/apikey?hl=pt-br)
-* Crie uma chave de API
-* Copie ela (será usada posteriormente)
-* `python example.py`
-* Prontinho! 😎
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-<a id="Linux"></a>
-### $ Linux🐧:
+## Learn More
 
-* `python3 -m venv dev`
-* `source ./dev/bin/activate`
-* `pip install -q -U google-generativeai`
-* faça uma conta em [gemini api key](https://aistudio.google.com/app/apikey?hl=pt-br)
-* Crie uma chave de API
-* Copie ela (será usada posteriormente)
-* `python3 example.py`
-* Prontinho! 😎
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
