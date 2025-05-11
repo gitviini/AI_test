@@ -1,7 +1,7 @@
 # Tentando executar as importações
 try:
     # Importando
-    import google.generativeai as genai
+    from google import genai
     import os
 
 # Excessão por falta de modulo instalados/encontrados
@@ -19,26 +19,26 @@ class Model:
         
         # Verificando/Definindo/Configurando a constante KEY
         if KEY:
-            genai.configure(api_key=KEY)
+            self.client = genai.Client(api_key=KEY)
         else:
             while True:
                 KEY = input("API_KEY:")
                 if(KEY != ""): break
-            genai.configure(api_key=KEY)
+            self.clent = genai.Client(api_key=KEY)
 
         # Definindo modelo de IA a ser utilizado        
-        self.model = genai.GenerativeModel("gemini-1.5-flash")
+        self.model = "gemini-2.0-flash"
 
 
     # Exemplo de prompt
     def example(self):
         print("\033[33;3mClick [Enter] para Sair :\033[m\n> (PROMPT) Liste 3 nomes brasileiros:\n")
-        response = self.model.generate_content("Liste 3 nomes brasileiros")
+        response = self.client.models.generate_content(model=self.model, contents="Liste 3 nomes brasileiros")
         input(response.text)
 
     # Faz requisição de prompt do usuário
     def response(self, ask):
-        response = self.model.generate_content(ask)
+        response = self.client.models.generate_content(model=self.model, contents=ask)
         input("\033[33;3mClick [Enter] para Sair :\033[m\n"+response.text)
 
     # Limpa o console
