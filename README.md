@@ -19,7 +19,7 @@ _**OBS** : é requerido python3.9 ou superior_
 
 * `python -m venv dev`
 * `dev/Script/activate`
-* `pip install -q -U google-generativeai`
+* `pip install -q -U google-genai`
 * faça uma conta em [gemini api key](https://aistudio.google.com/app/apikey?hl=pt-br)
 * Crie uma chave de API
 * Copie ela (será usada posteriormente)
@@ -31,7 +31,7 @@ _**OBS** : é requerido python3.9 ou superior_
 
 * `python3 -m venv dev`
 * `source ./dev/bin/activate`
-* `pip install -q -U google-generativeai`
+* `pip install -q -U google-genai`
 * faça uma conta em [gemini api key](https://aistudio.google.com/app/apikey?hl=pt-br)
 * Crie uma chave de API
 * Copie ela (será usada posteriormente)
